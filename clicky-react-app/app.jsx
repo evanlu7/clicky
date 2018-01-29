@@ -1,19 +1,14 @@
 function Application (){
 	return(
-<div className="top portion">
-	<div className="header">
 <h1>Clicky Game</h1>
-	</div>
 		<div className="images">
-			</div>
-			<div className="player-score">
-				<div className="counter">
-				
-					<div className="counter-score"> 31 </div>
-			</div>
-
 		</div>
-</div>
+		<div className="player-score">
+		</div>
+		<div className="counter">
+		</div>
+		<div className="counter-score"> 0 
+		</div>
 		);
 }
 
