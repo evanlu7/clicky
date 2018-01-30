@@ -2,8 +2,8 @@
 
 var PLAYERS = [
 	{
-		name:"Test",
-		score: 31,
+		name:"Your Score",
+		score: 0,
 		id:1
 	}
 ];
@@ -39,27 +39,16 @@ var Counter = React.createClass({
 	},
 
 
-	decrementScore: function(){
-		this.setState({
-			score: (this.state.score - 1),
-		});
-	},
-
-
-
 	render: function () {
 		return(
 		<div className="counter">
-			<button className="counter-action decrement" onClick={this.decrementScore}>  - </button>
 			<div className="counter-score"> {this.state.score} </div>
+			<button className="counter-action increment" onClick={this.incrementScore}> + </button>
 			<button className="counter-action increment" onClick={this.incrementScore}> + </button>
 		</div>
 		);
 	}
 });
-
-
-
 
 function Player (props){
 	return(
@@ -92,11 +81,6 @@ function Application (props){
 			return <Player name={player.name} score={player.score} key={player.id} />
 		})}
 
-	
-
-
-
-
 		</div>
 </div>
 		);
@@ -115,6 +99,4 @@ Application.defaultProps = {
 }
 
 ReactDOM.render(<Application players={PLAYERS} />, document.getElementById('container'));
-// 2 arguments:
-// 1. virtual dom element 
-// 2. real dom element where we want to place the virtual dom
+

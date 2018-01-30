@@ -126,6 +126,8 @@ body {
 
   .counter-action {
     border: none;
+    width:200px;
+    height: 200px;
     font-weight: bold;
     color: #FAFAFA;
     display: block;
@@ -138,20 +140,10 @@ body {
   }
 
   .counter-action.increment {
-    background: #66BB6A;
+    background-image: url("/img/spongebob-1.png");
   }
 
   .counter-action.increment:hover {
-    background: #549d59;
-    cursor: pointer;
-  }
-
-  .counter-action.decrement {
-    background: #ef5350;
-  }
-
-  .counter-action.decrement:hover {
-    background: #c44442;
     cursor: pointer;
   }
 
