@@ -1,4 +1,13 @@
 
+
+var PLAYERS = [
+	{
+		name:"Test",
+		score: 31,
+		id:1
+	}
+];
+
 function Header (props) {
 	return(	
 		<div className="header">
@@ -13,7 +22,7 @@ Header.propTypes = {
 
 var Counter = React.createClass({
 	propTypes: {
-		intialScore: React.PropTypes.number.isRequired,
+		initialScore: React.PropTypes.number.isRequired,
 
 	},
 
@@ -29,15 +38,27 @@ var Counter = React.createClass({
 		});
 	},
 
+
+	decrementScore: function(){
+		this.setState({
+			score: (this.state.score - 1),
+		});
+	},
+
+
+
 	render: function () {
 		return(
 		<div className="counter">
+			<button className="counter-action decrement" onClick={this.decrementScore}>  - </button>
 			<div className="counter-score"> {this.state.score} </div>
 			<button className="counter-action increment" onClick={this.incrementScore}> + </button>
 		</div>
 		);
 	}
 });
+
+
 
 
 function Player (props){
@@ -62,20 +83,22 @@ Player.propTypes = {
 }
 
 
-
-function Application (){
+function Application (props){
 	return(
-<h1>Clicky Game</h1>
+<div className="scoreboard">
+<Header title={props.title}/>
+		<div className="players">
+		{props.players.map(function(player){
+			return <Player name={player.name} score={player.score} key={player.id} />
+		})}
+
+	
 
 
-		<div className="images">
+
+
 		</div>
-		<div className="player-score">
-		</div>
-		<div className="counter">
-		</div>
-		<div className="counter-score"> 0 
-		</div>
+</div>
 		);
 }
 
@@ -88,11 +111,10 @@ Application.propTypes = {
 };
 
 Application.defaultProps = {
-	title:"Scoreboard"
+	title:"Clicky"
 }
 
 ReactDOM.render(<Application players={PLAYERS} />, document.getElementById('container'));
-
-
-ReactDOM.render(<Application />, document.getElementById('container'));
-
+// 2 arguments:
+// 1. virtual dom element 
+// 2. real dom element where we want to place the virtual dom
